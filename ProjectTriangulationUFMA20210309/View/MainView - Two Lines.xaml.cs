@@ -18,7 +18,7 @@ namespace ProjectTriangulationUFMA20210309 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window {
+    public partial class MainWindowTwoLines : Window {
 
         private readonly ViewPortArea viewPortArea;
         private Line pathT;
@@ -38,7 +38,7 @@ namespace ProjectTriangulationUFMA20210309 {
         private double vXend;
         private double vYend;
 
-        public MainWindow() {
+        public MainWindowTwoLines() {
             InitializeComponent();
             viewPortArea= new ViewPortArea(0, 1000, 0, 1000);
 
