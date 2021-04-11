@@ -90,6 +90,11 @@ namespace ProjectTriangulationUFMA20210309 {
 
             // Intersection Point
             intersectionPoint = new IntersectionPoint(tXstart, tYstart, tXend, tYend, vXstart, vYstart, vXend, vYend);
+            if (intersectionPoint.Intersection) {
+                lblIntersection.Text = "Intersection? true!";
+            } else {
+                lblIntersection.Text = "Intersection? false!";
+            }
             txtPointX.Text = intersectionPoint.PointX.ToString();
             txtPointY.Text = intersectionPoint.PointY.ToString();
 

@@ -11,6 +11,18 @@ namespace ProjectTriangulationUFMA20210309.Model {
         #region Fields, Properties and Variables
         // ToDo: Implement Class Line and Point
 
+        // Second X Point of Both Lines
+        private double XSecond;
+
+        // Penult X Point of Both Lines
+        private double XPenult;
+
+        // Second Y Point of Both Lines
+        private double YSecond;
+
+        // Penult Y Point of Both Lines
+        private double YPenult;
+
         // Line T
         private double TXstart;
         private double TYstart;
@@ -39,6 +51,13 @@ namespace ProjectTriangulationUFMA20210309.Model {
         public double PointY {
             get { return pointY; }
             set { pointY = value; }
+        }
+
+        // Intersection?
+        private bool intersection;
+        public bool Intersection {
+            get { return intersection; }
+            set { intersection = value; }
         }
 
         #endregion
@@ -73,8 +92,35 @@ namespace ProjectTriangulationUFMA20210309.Model {
             // Intersection Points
             PointX = (Vb - Tb) / (Tm - Vm);
             PointY = (Tm * PointX) + Tb;
+
+            // Second and Penult
+            List<double> pointsX = new List<double> { TXstart, TXend, VXstart, VXend };
+            var pointsXinOrder = pointsX.OrderBy(x => x).ToList();
+
+            List<double> pointsY = new List<double> { TYstart, TYend, VYstart, VYend };
+            var pointsYinOrder = pointsY.OrderBy(y => y).ToList();
+
+            XSecond = pointsXinOrder[1];
+            YSecond = pointsYinOrder[1];
+            XPenult = pointsXinOrder[2];
+            YPenult = pointsYinOrder[2];
+
+            // Intersection
+            if ((PointX>XSecond)&&(PointX<XPenult)&&(PointY>YSecond)&&(PointY<YPenult)) {
+                Intersection = true;
+            } else {
+                Intersection = false;
+            }
         }
         #endregion
+
+        public double Min(double a, double b) {
+            return (a < b) ? a : b;
+        }
+
+        public double Max(double a, double b) {
+            return (a > b) ? a : b;
+        }
 
     }
 }
