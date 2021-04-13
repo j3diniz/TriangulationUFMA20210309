@@ -24,6 +24,11 @@ namespace ProjectTriangulationUFMA20210309.Model {
         private double YPenult;
 
         // Line T
+        private LineSegment lineT;
+        public LineSegment LineT {
+            get { return lineT; }
+            set { lineT = value; }
+        }
         private double TXstart;
         private double TYstart;
         private double TXend;
@@ -40,6 +45,12 @@ namespace ProjectTriangulationUFMA20210309.Model {
         public double Vb;
 
         // Intersection Points
+        private PointXY pointOfIntersection;
+        public PointXY PointOfIntersection {
+            get { return pointOfIntersection; }
+            set { pointOfIntersection = value; }
+        }
+
 
         private double pointX;
         public double PointX {

@@ -68,6 +68,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\IntersectionPoint.cs" />
+    <Compile Include="Model\LineSegment.cs" />
     <Compile Include="Model\PointXY.cs" />
     <Compile Include="View\TwoLinesView.xaml.cs">
       <DependentUpon>TwoLinesView.xaml</DependentUpon>
