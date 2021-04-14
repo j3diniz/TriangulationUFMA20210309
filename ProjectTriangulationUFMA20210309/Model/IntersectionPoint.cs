@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectTriangulationUFMA20210309.Model {
     class IntersectionPoint {
-
+        // ToDo: Remove Old Implementation
 
         #region Fields, Properties and Variables
         // ToDo: Implement Class Line and Point
@@ -29,39 +29,19 @@ namespace ProjectTriangulationUFMA20210309.Model {
             get { return lineT; }
             set { lineT = value; }
         }
-        private double TXstart;
-        private double TYstart;
-        private double TXend;
-        private double TYend;
-        public double Tm;
-        public double Tb;
 
         // Line V
-        private double VXstart;
-        private double VYstart;
-        private double VXend;
-        private double VYend;
-        public double Vm;
-        public double Vb;
+        private LineSegment lineV;
+        public LineSegment LineV {
+            get { return lineV; }
+            set { lineV = value; }
+        }
 
         // Intersection Points
         private PointXY pointOfIntersection;
         public PointXY PointOfIntersection {
             get { return pointOfIntersection; }
             set { pointOfIntersection = value; }
-        }
-
-
-        private double pointX;
-        public double PointX {
-            get { return pointX; }
-            set { pointX = value; }
-        }
-
-        private double pointY;
-        public double PointY {
-            get { return pointY; }
-            set { pointY = value; }
         }
 
         // Intersection?
@@ -74,41 +54,21 @@ namespace ProjectTriangulationUFMA20210309.Model {
         #endregion
 
         #region Constructors
-        public IntersectionPoint(double tXstart, double tYstart, double tXend, double tYend, double vXstart, double vYstart, double vXend, double vYend) {
-            // Line T
-            TXstart = tXstart;
-            TYstart = tYstart;
-            if (tXstart== tXend) {
-                TXend = tXend+1;
-            } else {
-                TXend = tXend;
-            }
-            TYend = tYend;
-            Tm = (TYend - TYstart) / (TXend - TXstart);
-            Tb = TYstart - (Tm * TXstart);
+        public IntersectionPoint(LineSegment lineT, LineSegment lineV) {
 
-
-            // Line V
-            VXstart = vXstart;
-            VYstart = vYstart;
-            if (vXstart == vXend) {
-                VXend = vXend + 1;
-            } else {
-                VXend = vXend;
-            }
-            VYend = vYend;
-            Vm = (VYend - VYstart) / (VXend - VXstart);
-            Vb = VYstart - (Vm * VXstart);
+            LineT = lineT;
+            LineV = lineV;
 
             // Intersection Points
-            PointX = (Vb - Tb) / (Tm - Vm);
-            PointY = (Tm * PointX) + Tb;
+            PointOfIntersection = new PointXY(0,0);
+            PointOfIntersection.X = (lineV.B - lineT.B) / (lineT.M - lineV.M);
+            PointOfIntersection.Y = (lineT.M * PointOfIntersection.X) + lineT.B;
 
             // Second and Penult
-            List<double> pointsX = new List<double> { TXstart, TXend, VXstart, VXend };
+            List<double> pointsX = new List<double> { lineT.StartPoint.X, lineT.EndPoint.X, lineV.StartPoint.X, lineV.EndPoint.X };
             var pointsXinOrder = pointsX.OrderBy(x => x).ToList();
 
-            List<double> pointsY = new List<double> { TYstart, TYend, VYstart, VYend };
+            List<double> pointsY = new List<double> { lineT.StartPoint.Y, lineT.EndPoint.Y, lineV.StartPoint.Y, lineV.EndPoint.Y };
             var pointsYinOrder = pointsY.OrderBy(y => y).ToList();
 
             XSecond = pointsXinOrder[1];
@@ -117,7 +77,7 @@ namespace ProjectTriangulationUFMA20210309.Model {
             YPenult = pointsYinOrder[2];
 
             // Intersection
-            if ((PointX>XSecond)&&(PointX<XPenult)&&(PointY>YSecond)&&(PointY<YPenult)) {
+            if ((PointOfIntersection.X > XSecond)&&(PointOfIntersection.X < XPenult)&&(PointOfIntersection.Y > YSecond)&&(PointOfIntersection.Y < YPenult)) {
                 Intersection = true;
             } else {
                 Intersection = false;

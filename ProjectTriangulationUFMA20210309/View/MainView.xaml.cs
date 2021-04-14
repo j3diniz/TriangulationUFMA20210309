@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LineSegment = ProjectTriangulationUFMA20210309.Model.LineSegment;
 
 namespace ProjectTriangulationUFMA20210309 {
     /// <summary>
@@ -27,12 +28,18 @@ namespace ProjectTriangulationUFMA20210309 {
         private IntersectionPoint intersectionPoint;
 
         // Line T
+        private LineSegment lineT;
+        private PointXY pointStartT;
+        private PointXY pointEndT;
         private double tXstart;
         private double tYstart;
         private double tXend;
         private double tYend;
 
         // Line V
+        private LineSegment lineV;
+        private PointXY pointStartV;
+        private PointXY pointEndV;
         private double vXstart;
         private double vYstart;
         private double vXend;
@@ -88,28 +95,43 @@ namespace ProjectTriangulationUFMA20210309 {
             pathV.StrokeThickness = 2;
             viewPortCanvas.Children.Add(pathV);
 
+            // Line T
+            PointXY pointStartT = new PointXY(tXstart, tYstart);
+            PointXY pointEndT = new PointXY(tXend, tYend);
+            LineSegment lineT = new LineSegment(pointStartT, pointEndT);
+
+            // Line V
+            PointXY pointStartV = new PointXY(vXstart, vYstart);
+            PointXY pointEndV = new PointXY(vXend, vYend);
+            LineSegment lineV = new LineSegment(pointStartV, pointEndV);
+
             // Intersection Point
-            intersectionPoint = new IntersectionPoint(tXstart, tYstart, tXend, tYend, vXstart, vYstart, vXend, vYend);
-            txtPointX.Text = intersectionPoint.PointX.ToString();
-            txtPointY.Text = intersectionPoint.PointY.ToString();
+            intersectionPoint = new IntersectionPoint(lineT, lineV);
+            if (intersectionPoint.Intersection) {
+                //lblIntersection.Text = "Intersection? true!";
+            } else {
+                //lblIntersection.Text = "Intersection? false!";
+            }
+            txtPointX.Text = intersectionPoint.PointOfIntersection.X.ToString();
+            txtPointY.Text = intersectionPoint.PointOfIntersection.Y.ToString();
 
-            txtTb.Text = intersectionPoint.Tb.ToString();
-            txtTm.Text = intersectionPoint.Tm.ToString();
+            txtTb.Text = intersectionPoint.LineT.B.ToString();
+            txtTm.Text = intersectionPoint.LineT.M.ToString();
 
-            txtVb.Text = intersectionPoint.Vb.ToString();
-            txtVm.Text = intersectionPoint.Vm.ToString();
+            txtVb.Text = intersectionPoint.LineV.B.ToString();
+            txtVm.Text = intersectionPoint.LineV.M.ToString();
 
             viewPortCanvas.Children.Remove(circleAtPoint);
             circleAtPoint = new Ellipse();
             circleAtPoint.Fill = new SolidColorBrush(Color.FromRgb(50, 50, 50));
             circleAtPoint.Stroke = Brushes.Red;
-            circleAtPoint.StrokeThickness = 2; 
-            circleAtPoint.Width= 10;
+            circleAtPoint.StrokeThickness = 2;
+            circleAtPoint.Width = 10;
             circleAtPoint.Height = 10;
-            Canvas.SetLeft(circleAtPoint,(viewPortArea.XNormalize(intersectionPoint.PointX, viewPortCanvas.Width) - 5));
-            Canvas.SetTop(circleAtPoint, (viewPortArea.YNormalize(intersectionPoint.PointY, viewPortCanvas.Height) - 5));
+            Canvas.SetLeft(circleAtPoint, (viewPortArea.XNormalize(intersectionPoint.PointOfIntersection.X, viewPortCanvas.Width) - 5));
+            Canvas.SetTop(circleAtPoint, (viewPortArea.YNormalize(intersectionPoint.PointOfIntersection.Y, viewPortCanvas.Height) - 5));
             viewPortCanvas.Children.Add(circleAtPoint);
-            
+
         }
 
     }
