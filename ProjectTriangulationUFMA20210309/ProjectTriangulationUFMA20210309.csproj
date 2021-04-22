@@ -59,7 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\MainView.xaml">
+    <Page Include="View\MeshView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -69,12 +69,13 @@
     </Compile>
     <Compile Include="Model\IntersectionPoint.cs" />
     <Compile Include="Model\LineSegment.cs" />
+    <Compile Include="Model\MeshPoints.cs" />
     <Compile Include="Model\PointXY.cs" />
     <Compile Include="View\TwoLinesView.xaml.cs">
       <DependentUpon>TwoLinesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MainView.xaml.cs">
-      <DependentUpon>MainView.xaml</DependentUpon>
+    <Compile Include="View\MeshView.xaml.cs">
+      <DependentUpon>MeshView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

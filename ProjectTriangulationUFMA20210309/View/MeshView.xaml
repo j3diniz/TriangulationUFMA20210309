@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectTriangulationUFMA20210309"
         mc:Ignorable="d"
-        Title="Triangulation algorithm - DCCMAPI - Algoritmos - Joel Diniz" Height="270" Width="330" WindowStartupLocation="CenterScreen" Background="#FFEEEEF2">
+        Title="Triangulation algorithm - DCCMAPI - Algoritmos - Joel Diniz" Height="290" Width="330" WindowStartupLocation="CenterScreen" Background="#FFEEEEF2">
     <Viewbox Stretch="Uniform">
         <StackPanel>
             <Menu Height="21" Margin="0">
@@ -28,12 +28,20 @@
                                Stroke="DarkGray" StrokeThickness="1"/>
                 </Canvas>
                 <StackPanel Grid.Row="0" Grid.Column="1">
-                    <!--#region Load Points -->
-                    <Button Name="btnLoad" Width="51" Margin="5" Click="LoadPoints_OnClick">_Load</Button>
+                    <!--#region Points -->
+                    <TextBlock Text="Points" Margin="5" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock Name="lblPointsInfo" Text="Points: " Margin="5"/>
+                    <Button Name="btnLoadPoints" Width="51" Margin="5" Click="LoadPoints_OnClick">_Load</Button>
                     <!--#endregion-->
-                    <Button Name="btnUpdate" Width="51" Margin="5" Click="UpdateGraphics_OnClick">_Update</Button>
                     <Separator Margin="5" Background="DarkGray" />
-                    <Button Name="btnExit" Click="Exit_OnClick" Width="51" Margin="5,13,5,5">
+                    <!--#region Lines -->
+                    <TextBlock Text="Lines" Margin="5" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock Name="lblLinesInfo" Text="Lines: " Margin="5"/>
+                    <Button Name="btnComputeLines" Width="57" Margin="5" Click="ComputeLines_OnClick">_Compute</Button>
+                    <!--#endregion-->
+                    <Separator Margin="5" Background="DarkGray" />
+                    <Button Name="btnUpdate" Width="51" Margin="5" Click="UpdateGraphics_OnClick">_Update</Button>
+                    <Button Name="btnExit" Click="Exit_OnClick" Width="51" Margin="5" VerticalAlignment="Bottom">
                         E_xit
                     </Button>
                 </StackPanel>
