@@ -75,7 +75,8 @@ namespace ProjectTriangulationUFMA20210309 {
 
         private void ComputeLines_OnClick(object sender, RoutedEventArgs e) {
             if ((meshPoints.Points != null) && (meshPoints.Points.Count > 0)) {
-                meshPoints.DrawRawLines();
+                //meshPoints.DrawRawLines();
+                meshPoints.DrawMeshLines();
                 UpdateGraphics();
             } else {
                 MessageBox.Show("Load points!", "Warning!");
@@ -103,24 +104,37 @@ namespace ProjectTriangulationUFMA20210309 {
                     viewPortCanvas.Children.Add(circleAtPoint);
                 }
             }
-            if ((meshPoints.Lines != null) && (meshPoints.Lines.Count > 0)) {
-                foreach (LineSegment lineItem in meshPoints.Lines) {
+            
+            lblPointsInfo.Text = "Loaded Points: " + meshPoints.Points.Count;
+            #endregion
+
+            #region Lines
+            //if ((meshPoints.RawLines != null) && (meshPoints.RawLines.Count > 0)) {
+            //    foreach (LineSegment lineItem in meshPoints.RawLines) {
+            //        Line line = new Line();
+            //        line.X1 = viewPortArea.XNormalize(lineItem.StartPoint.X, viewPortCanvas.Width);
+            //        line.Y1 = viewPortArea.YNormalize(lineItem.StartPoint.Y, viewPortCanvas.Height);
+            //        line.X2 = viewPortArea.XNormalize(lineItem.EndPoint.X, viewPortCanvas.Width);
+            //        line.Y2 = viewPortArea.YNormalize(lineItem.EndPoint.Y, viewPortCanvas.Height);
+            //        line.Stroke = Brushes.Red;
+            //        line.StrokeThickness = 2;
+            //        viewPortCanvas.Children.Add(line);
+            //    }
+            //}
+            if ((meshPoints.MeshLines != null) && (meshPoints.MeshLines.Count > 0)) {
+                foreach (LineSegment lineItem in meshPoints.MeshLines) {
                     Line line = new Line();
                     line.X1 = viewPortArea.XNormalize(lineItem.StartPoint.X, viewPortCanvas.Width);
                     line.Y1 = viewPortArea.YNormalize(lineItem.StartPoint.Y, viewPortCanvas.Height);
                     line.X2 = viewPortArea.XNormalize(lineItem.EndPoint.X, viewPortCanvas.Width);
                     line.Y2 = viewPortArea.YNormalize(lineItem.EndPoint.Y, viewPortCanvas.Height);
-                    line.Stroke = Brushes.Red;
+                    line.Stroke = Brushes.Blue;
                     line.StrokeThickness = 2;
                     viewPortCanvas.Children.Add(line);
                 }
             }
-            lblPointsInfo.Text = "Loaded Points: " + meshPoints.Points.Count;
-            lblLinesInfo.Text = "Loaded Lines: " + meshPoints.Lines.Count;
-            #endregion
-
-            #region Lines
-            lblLinesInfo.Text = "Loaded Lines: " + meshPoints.Lines.Count;
+            //lblLinesInfo.Text = "Loaded Lines: " + meshPoints.RawLines.Count;
+            lblLinesInfo.Text = "Loaded Lines: " + meshPoints.MeshLines.Count;
             #endregion
 
         }

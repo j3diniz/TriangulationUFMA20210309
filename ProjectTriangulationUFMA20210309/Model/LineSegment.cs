@@ -34,6 +34,11 @@ namespace ProjectTriangulationUFMA20210309.Model {
             set { b = value; }
         }
 
+        private double length;
+        public double Length {
+            get { return length; }
+            set { length = value; }
+        }
 
 
         // Can be deleted? No = True
@@ -64,6 +69,9 @@ namespace ProjectTriangulationUFMA20210309.Model {
 
             M = (EndPoint.Y - StartPoint.Y) / (EndPoint.X - StartPoint.X);
             B = StartPoint.Y - (M * StartPoint.X);
+
+            // Length
+            Length= Math.Sqrt(Math.Pow(EndPoint.Y - StartPoint.Y, 2) + Math.Pow(EndPoint.X - StartPoint.X, 2));
 
         }
         #endregion
