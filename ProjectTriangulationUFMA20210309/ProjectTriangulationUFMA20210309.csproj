@@ -55,11 +55,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\TwoLinesView.xaml">
+    <Page Include="View\IntersectionPointControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MeshPointsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TwoLinesIntersectionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\MeshView.xaml">
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -71,11 +83,25 @@
     <Compile Include="Model\LineSegment.cs" />
     <Compile Include="Model\MeshPoints.cs" />
     <Compile Include="Model\PointXY.cs" />
-    <Compile Include="View\TwoLinesView.xaml.cs">
-      <DependentUpon>TwoLinesView.xaml</DependentUpon>
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Command\DelegateCommand.cs" />
+    <Compile Include="ViewModel\IntersectionPointViewModel.cs" />
+    <Compile Include="ViewModel\MeshPointsViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="View\IntersectionPointControl.xaml.cs">
+      <DependentUpon>IntersectionPointControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MeshView.xaml.cs">
-      <DependentUpon>MeshView.xaml</DependentUpon>
+    <Compile Include="View\MeshPointsControl.xaml.cs">
+      <DependentUpon>MeshPointsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TwoLinesIntersectionView.xaml.cs">
+      <DependentUpon>TwoLinesIntersectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -110,11 +136,15 @@
   <ItemGroup>
     <Folder Include="Model\DataBase\" />
     <Folder Include="SupportContent\GeneralResource\" />
-    <Folder Include="SupportContent\Images\" />
     <Folder Include="SupportContent\Library\" />
-    <Folder Include="ViewModel\Command\" />
     <Folder Include="ViewModel\Controller\" />
     <Folder Include="ViewModel\HelperAndUtil\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SupportContent\Images\UFMA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SupportContent\Images\Typing.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

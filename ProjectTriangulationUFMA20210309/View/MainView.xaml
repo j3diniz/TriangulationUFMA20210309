@@ -1,0 +1,65 @@
+﻿<Window x:Class="ProjectTriangulationUFMA20210309.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectTriangulationUFMA20210309.View"
+        xmlns:viewModel="clr-namespace:ProjectTriangulationUFMA20210309.ViewModel"
+        mc:Ignorable="d"
+        Title="   Triangulation Algorithm - DCCMAPI - UFMA - PAA - Joel Diniz" Height="350" Width="513" WindowStartupLocation="CenterScreen" Icon="/ProjectTriangulationUFMA20210309;component/SupportContent/Images/Typing.png" Loaded="Window_Loaded">
+    <Window.Background>
+        <ImageBrush ImageSource="/ProjectTriangulationUFMA20210309;component/SupportContent/Images/UFMA.jpg"/>
+    </Window.Background>
+
+    <!--#region Net Area -->
+    <Viewbox Stretch="Uniform">
+        <StackPanel HorizontalAlignment="Left" Width="533" Height="350">
+            <!--#region Main Menu -->
+            <Menu Margin="33,5,5,5" Background="Transparent">
+                <MenuItem Header="_File">
+                    <MenuItem Header="E_xit" Click="MnuExit_OnClick"/>
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem Header="_Mesh Points"/>
+                    <MenuItem Header="_Lines Instersection"/>
+                </MenuItem>
+                <MenuItem Header="_Help">
+                    <MenuItem Header="_About"/>
+                </MenuItem>
+            </Menu>
+            <!--#endregion-->
+            <!--#region workspace -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!--#region Side Buttons -->
+                <StackPanel Grid.Column="0" Grid.Row="0">
+                    <Button Name="btnLinesIntersection" Content="Lines Intersections" Width="113" Margin="5" Padding="3" Background="Transparent" Command="{Binding ChangeViewCommand}" CommandParameter="{Binding IntersectionPointControl}">
+                        <Button.LayoutTransform>
+                            <RotateTransform Angle="90"/>
+                        </Button.LayoutTransform>
+                    </Button>
+                    <Button Name="btnMesh" Content="Mesh Points" Width="113" Margin="5" Padding="3" Background="Transparent" Command="{Binding ChangeViewCommand}" CommandParameter="{Binding MeshPointsControl}">
+                        <Button.LayoutTransform>
+                            <RotateTransform Angle="90"/>
+                        </Button.LayoutTransform>
+                    </Button>
+                </StackPanel>
+                <!--#endregion-->
+                <!--#region Central Region -->
+                <StackPanel Grid.Row="0" Grid.Column="1">
+                    <ContentControl Name="MainContentControl" Width="Auto" Opacity="1" Background="Transparent"/>
+                </StackPanel>
+                <!--#endregion-->
+            </Grid>
+            <!--#endregion-->
+        </StackPanel>
+    </Viewbox>
+    <!--#endregion-->
+</Window>
