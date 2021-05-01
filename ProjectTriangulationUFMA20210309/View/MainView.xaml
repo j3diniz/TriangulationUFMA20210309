@@ -6,18 +6,18 @@
         xmlns:local="clr-namespace:ProjectTriangulationUFMA20210309.View"
         xmlns:viewModel="clr-namespace:ProjectTriangulationUFMA20210309.ViewModel"
         mc:Ignorable="d"
-        Title="   Triangulation Algorithm - DCCMAPI - UFMA - PAA - Joel Diniz" Height="350" Width="513" WindowStartupLocation="CenterScreen" Icon="/ProjectTriangulationUFMA20210309;component/SupportContent/Images/Typing.png" Loaded="Window_Loaded">
+        Title="   Triangulation Algorithm - DCCMAPI - UFMA - PAA - Joel Diniz" Height="477" Width="513" WindowStartupLocation="CenterScreen" Icon="/ProjectTriangulationUFMA20210309;component/SupportContent/Images/CSharp.png" Loaded="Window_Loaded">
     <Window.Background>
         <ImageBrush ImageSource="/ProjectTriangulationUFMA20210309;component/SupportContent/Images/UFMA.jpg"/>
     </Window.Background>
 
     <!--#region Net Area -->
     <Viewbox Stretch="Uniform">
-        <StackPanel HorizontalAlignment="Left" Width="533" Height="350">
+        <StackPanel HorizontalAlignment="Left" Width="533" Height="477">
             <!--#region Main Menu -->
             <Menu Margin="33,5,5,5" Background="Transparent">
                 <MenuItem Header="_File">
-                    <MenuItem Header="E_xit" Click="MnuExit_OnClick"/>
+                    <MenuItem Header="E_xit" Click="Exit_OnClick"/>
                 </MenuItem>
                 <MenuItem Header="_Edit">
                     <MenuItem Header="_Mesh Points"/>
@@ -46,6 +46,11 @@
                         </Button.LayoutTransform>
                     </Button>
                     <Button Name="btnMesh" Content="Mesh Points" Width="113" Margin="5" Padding="3" Background="Transparent" Command="{Binding ChangeViewCommand}" CommandParameter="{Binding MeshPointsControl}">
+                        <Button.LayoutTransform>
+                            <RotateTransform Angle="90"/>
+                        </Button.LayoutTransform>
+                    </Button>
+                    <Button Name="btnExit" Content="E_xit" Width="51" Margin="5,133,5,5" Padding="3" Background="Transparent" Click="Exit_OnClick">
                         <Button.LayoutTransform>
                             <RotateTransform Angle="90"/>
                         </Button.LayoutTransform>

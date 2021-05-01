@@ -134,7 +134,7 @@ namespace ProjectTriangulationUFMA20210309 {
                 }
             }
             //lblLinesInfo.Text = "Loaded Lines: " + meshPoints.RawLines.Count;
-            lblLinesInfo.Text = "Loaded Lines: " + meshPoints.MeshLines.Count;
+            //lblLinesInfo.Text = "Loaded Lines: " + meshPoints.MeshLines.Count;
             #endregion
 
         }

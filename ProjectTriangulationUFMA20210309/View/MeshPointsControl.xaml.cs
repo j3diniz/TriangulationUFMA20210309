@@ -1,4 +1,5 @@
-﻿using ProjectTriangulationUFMA20210309.ViewModel;
+﻿using ProjectTriangulationUFMA20210309.Model;
+using ProjectTriangulationUFMA20210309.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

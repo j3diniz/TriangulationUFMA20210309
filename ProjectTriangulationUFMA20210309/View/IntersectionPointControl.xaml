@@ -5,10 +5,84 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectTriangulationUFMA20210309.View"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="450" Loaded="UserControl_Loaded">
+             d:DesignHeight="433" d:DesignWidth="500" Loaded="UserControl_Loaded">
     <StackPanel>
         <!--#region Intersection Point -->
-        <TextBlock HorizontalAlignment="Center" Margin="3" FontWeight="Bold" Text="Intersection Point"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Canvas Name="viewPortCanvas" Background="White" ClipToBounds="True"
+                    Width="385" Height="385"  Grid.Row="0" Grid.Column="0" Margin="5" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <Rectangle x:Name="canvasArea" Width="385" Height="385"
+                               Stroke="DarkGray" StrokeThickness="1"/>
+            </Canvas>
+            <StackPanel Grid.Row="0" Grid.Column="1">
+                <!--#region Points -->
+                <!--Line T-->
+                <TextBlock Text="T Line" Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Foreground="Blue"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="TXstart" Margin="5"/>
+                    <TextBox Name="txtTXstart" Width="33" Margin="5" Text="100"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="TYstart" Margin="5"/>
+                    <TextBox Name="txtTYstart" Width="33" Margin="5" Text="100"/>
+                </StackPanel>
+                <!---->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="TXend" Margin="5"/>
+                    <TextBox Name="txtTXend" Width="33" Margin="5" Text="500"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="TYend" Margin="5"/>
+                    <TextBox Name="txtTYend" Width="33" Margin="5" Text="500"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="txtTm" Width="33" Margin="5"/>
+                    <TextBox Name="txtTb" Width="33" Margin="5"/>
+                </StackPanel>
+                <!--Line V-->
+                <TextBlock Text="V Line" Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Foreground="Red"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="VXstart" Margin="5"/>
+                    <TextBox Name="txtVXstart" Width="33" Margin="5" Text="100"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="VYstart" Margin="5"/>
+                    <TextBox Name="txtVYstart" Width="33" Margin="5" Text="500"/>
+                </StackPanel>
+                <!---->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="VXend" Margin="5"/>
+                    <TextBox Name="txtVXend" Width="33" Margin="5" Text="500"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="VYend" Margin="5"/>
+                    <TextBox Name="txtVYend" Width="33" Margin="5" Text="100"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="txtVm" Width="33" Margin="5"/>
+                    <TextBox Name="txtVb" Width="33" Margin="5"/>
+                </StackPanel>
+                <Separator Margin="5" Background="DarkGray" />
+                <!--Intersection?-->
+                <TextBlock Name="lblIntersection" Text="Intersection?" Margin="5" FontWeight="Bold" HorizontalAlignment="Center" Foreground="Green"/>
+                
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="txtPointX" Width="33" Margin="5"/>
+                    <TextBox Name="txtPointY" Width="33" Margin="5"/>
+                </StackPanel>
+                <!---->
+                <Separator Margin="5" Background="DarkGray" />
+                <Button Width="99" Margin="5">_Update Graphics</Button>
+                <!--#endregion-->
+            </StackPanel>
+        </Grid>
         <!--#endregion-->
     </StackPanel>
 </UserControl>

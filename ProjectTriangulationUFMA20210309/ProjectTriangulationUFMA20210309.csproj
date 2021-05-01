@@ -146,5 +146,8 @@
   <ItemGroup>
     <Resource Include="SupportContent\Images\Typing.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SupportContent\Images\CSharp.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

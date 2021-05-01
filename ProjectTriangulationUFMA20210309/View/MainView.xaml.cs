@@ -58,13 +58,13 @@ namespace ProjectTriangulationUFMA20210309.View {
             #endregion
         }
 
-        private void MnuExit_OnClick(object sender, RoutedEventArgs e) {
-            this.Close();
-        }
-
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             // Referencing the local ViewModel to this View
             this.mainViewModel.MainView = this;
+        }
+
+        private void Exit_OnClick(object sender, RoutedEventArgs e) {
+            this.Close();
         }
     }
 }

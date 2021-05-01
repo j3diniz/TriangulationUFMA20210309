@@ -51,14 +51,14 @@ namespace ProjectTriangulationUFMA20210309.ViewModel {
         private IntersectionPointViewModel intersectionPointViewModel;
         public IntersectionPointViewModel IntersectionPointViewModel {
             get { return intersectionPointViewModel; }
-            set { intersectionPointViewModel = value; }
+            set { intersectionPointViewModel = value; OnPropertyChanged(); }
         }
 
 
         private IntersectionPointControl intersectionPointControl;
         public IntersectionPointControl IntersectionPointControl {
             get { return intersectionPointControl; }
-            set { intersectionPointControl = value; }
+            set { intersectionPointControl = value; OnPropertyChanged(); }
         }
         #endregion
 

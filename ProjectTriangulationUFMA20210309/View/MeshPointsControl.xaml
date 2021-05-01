@@ -5,10 +5,41 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectTriangulationUFMA20210309.View"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="450" Loaded="UserControl_Loaded">
+             d:DesignHeight="433" d:DesignWidth="500" Loaded="UserControl_Loaded">
     <StackPanel>
         <!--#region Mesh Points -->
-        <TextBlock HorizontalAlignment="Center" Margin="3" FontWeight="Bold" Text="Points Triangulation Mesh"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Canvas Name="viewPortCanvas" Background="White" ClipToBounds="True"
+                    Width="397" Height="397"  Grid.Row="0" Grid.Column="0" Margin="5" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <Rectangle x:Name="canvasArea" Width="397" Height="397"
+                               Stroke="DarkGray" StrokeThickness="1"/>
+            </Canvas>
+            <StackPanel Grid.Row="0" Grid.Column="1">
+                <!--#region Points -->
+                <TextBlock Text="Points" Margin="5" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock Name="lblPointsInfo" Text="Points: " Margin="5"/>
+                <Button Name="btnLoadPoints" Width="51" Margin="5" Command="{Binding LoadPointsCommand}" CommandParameter="C:\Temp\UFMA">_Load</Button>
+                <!--#endregion-->
+                <Separator Margin="5" Background="DarkGray" />
+                <!--#region Lines -->
+                <TextBlock Text="Lines" Margin="5" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock Name="lblRawLinesInfo" Text="Raw Lines: " Margin="5"/>
+                <TextBlock Name="lblMeshLinesInfo" Text="Mesh Lines: " Margin="5"/>
+                <Button Name="btnComputeLines" Width="57" Margin="5" Command="{Binding ComputeLinesCommand}" CommandParameter="{Binding MeshPoints}">_Compute</Button>
+                <!--#endregion-->
+                <Separator Margin="5" Background="DarkGray" />
+                <CheckBox x:Name="chkRawLines" Margin="5" Content="Raw Lines" IsChecked="True"/>
+                <CheckBox x:Name="chkMeshLines" Margin="5" Content="Mesh Lines" IsChecked="True"/>
+                <Button Name="btnUpdate" Width="51" Margin="5" Command="{Binding UpdateGraphicsCommand}" CommandParameter="{Binding MeshPoints}">_Update</Button>
+            </StackPanel>
+        </Grid>
         <!--#endregion-->
     </StackPanel>
 </UserControl>
