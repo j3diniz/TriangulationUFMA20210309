@@ -57,7 +57,5 @@ namespace ProjectTriangulationUFMA20210309.Model {
         }
         #endregion
 
-        // ToDo: Implement ToString
-
     }
 }

@@ -42,6 +42,8 @@ namespace ProjectTriangulationUFMA20210309.View {
             this.mainViewModel = mainView.DataContext as MainViewModel;
             this.intersectionPointViewModel = this.mainViewModel.IntersectionPointViewModel;
             this.DataContext = this.intersectionPointViewModel;
+
+            intersectionPointViewModel.UpdateGraphics(intersectionPointViewModel.IntersectionPoint);
         }
         #endregion
     }

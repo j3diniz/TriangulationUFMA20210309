@@ -179,7 +179,7 @@ namespace ProjectTriangulationUFMA20210309.ViewModel {
         }
         #endregion
 
-        #region Update Graphics Command
+        #region Compute Lines Command
         public bool ComputeLinesCanExecute(object parameter) {
             MeshPoints meshPoints = parameter as MeshPoints;
             if (meshPoints != null && meshPoints.Points.Count > 0) {

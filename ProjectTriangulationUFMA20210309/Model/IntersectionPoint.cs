@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectTriangulationUFMA20210309.Model {
     class IntersectionPoint {
-        // ToDo: Remove Old Implementation
-
         #region Fields, Properties and Variables
-        // ToDo: Implement Class Line and Point
 
         // Second X Point of Both Lines
         private double XSecond;
